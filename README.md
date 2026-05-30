@@ -1,89 +1,164 @@
-# AI Agent Multi-Turn Evaluations
+# AI Agent Multi-Turn Evaluation Project
 
-This repository contains multi-turn evaluation tasks designed to assess how AI agents behave inside simulated digital environments.
+## Overview
 
-The evaluations focus on conversational reasoning, context retention, action safety, and decision-making across extended interactions.
+This repository contains structured evaluations of AI agents operating inside simulated enterprise environments.
 
-## Evaluation Areas
+The core objective is to test how well AI systems handle complex, multi-turn decision-making tasks that involve changing constraints, tool use, and evolving user intent.
 
-The repository evaluates whether AI agents can:
+The project is designed around the creation of **synthetic digital worlds**, where an AI agent must interact with applications, follow workflows, and make safe and correct decisions under ambiguity.
 
-- Maintain context across multiple turns
-- Handle follow-up requests correctly
-- Adapt to changing goals
-- Process user corrections
-- Decide when to act vs when to ask for clarification
-- Avoid unsafe or irreversible actions without confirmation
-- Perform safe intermediate reasoning before yielding
+---
 
-## Repository Structure
+## Core Concept: The Simulated World
 
-ai-agent-multi-turn-evals/
-│
-├── README.md
-│
-├── personas/
-│   ├── founders/
-│   ├── managers/
-│   ├── interns/
-│   └── researchers/
-│
-├── trajectories/
-│   ├── terminal/
-│   ├── airline/
-│   └── retail/
-│
-├── rubrics/
-│
-├── worlds/
-│
-├── analyses/
-│
-└── results/
+Each evaluation task is built around a **fictional but realistic digital environment ("world")**.
 
-## Simulated Environments
+A world contains:
 
-Tasks are designed around lightweight fictional digital environments using combinations of:
+### 1. 👤 Persona
+A synthetic user with:
+- A role (e.g. founder, employee, traveler, operator)
+- A goal (what they are trying to accomplish)
+- A realistic context (time pressure, business constraints, urgency)
 
-- Terminal workspaces
-- Gmail
-- Notes and Lists
-- Calendar systems
-- Airline workflows
-- Retail purchasing systems
+---
 
-The complexity is centered on the conversation rather than the environment itself.
+### 2. 🧩 Applications (Environment)
 
-## Core Multi-Turn Skills
+Each world includes:
 
-### Maintaining Context
-The agent must preserve constraints, preferences, and prior information across multiple turns without requiring repetition.
+#### Primary Application
+The main system where the core task happens, such as:
+- Terminal (file system / code execution)
+- Airline (flight booking system)
+- Retail (purchases / orders)
 
-### Goal Switching
-The user changes objectives mid-conversation, requiring the agent to adapt while preserving relevant context.
+#### Secondary Applications
+Supporting systems that introduce realism and cross-system dependency, such as:
+- Gmail (email communication)
+- Notes / Lists (task tracking)
+- Documents (structured information storage)
+- Calendar (scheduling)
 
-### Follow-Up Reasoning
-The agent must correctly interpret vague references to previous outputs or actions.
+These applications form a **multi-system environment** where the agent must navigate between tools.
 
-### User Corrections
-The user modifies or overrides previous instructions, requiring the agent to discard outdated assumptions.
+---
 
-## Decision Framework
+## 🧪 Task Structure
 
-- ACT → proceed when all required information is available  
-- YIELD → request clarification before irreversible or ambiguous actions  
-- ACT→YIELD → perform safe intermediate steps before asking for confirmation  
+Each task follows a structured evaluation pipeline:
 
-## Evaluation Components
+### Step 1 — World Creation
+A full simulated environment is defined, including:
+- Persona
+- Applications
+- Data artifacts (files, emails, bookings, etc.)
+- Initial state of the system
 
-- Persona definition  
-- World design  
-- Multi-turn trajectory  
-- ACT/YIELD reasoning analysis  
-- Rubric criteria  
-- Model comparison analysis  
-- Failure analysis  
+---
 
-## Purpose
+### Step 2 — Golden Trajectory Design
 
-The goal is to understand how AI agents behave in realistic multi-turn scenarios where memory, reasoning, and decision-making are required.
+Before running any model, a **golden trajectory** is defined.
+
+This is a step-by-step ideal conversation that includes:
+
+- Multi-turn user prompts
+- Expected agent behavior
+- Decision points (ACT / YIELD / ACT→YIELD)
+- Expected tool usage
+- Skill being tested per turn
+
+The trajectory must explicitly follow evaluation rubrics.
+
+---
+
+### Step 3 — Evaluation Rubrics
+
+Each task includes a rubric used to evaluate success.
+
+Rubrics define:
+- What the agent must do in each turn
+- What data it must retrieve or modify
+- What decisions it must make
+- Whether it should ACT, YIELD, or ACT→YIELD
+
+At least one rubric item must:
+- Reference a specific entity (file, email, booking, ID, etc.)
+- Evaluate a decision point, not just output text
+
+---
+
+### Step 4 — Run 1 (Failure Run)
+
+The first model run is used to test whether the task is sufficiently challenging.
+
+The goal is to intentionally design a world where the agent fails in at least one of the following ways:
+
+- ❌ Acts when it should YIELD
+- ❌ Fails to act when it should proceed
+- ❌ Takes an incorrect action
+- ❌ Produces incorrect or inconsistent information
+
+If the agent does not fail, the task is considered too easy and must be redesigned.
+
+---
+
+### Step 5 — Run 2 (Golden Trajectory)
+
+The second run follows the same scenario but is guided toward the correct behavior.
+
+During this run:
+- The agent should follow the golden trajectory
+- If it deviates, the user may introduce **HINTS** to redirect behavior
+- Hints are corrective instructions, not new tasks
+- Hints must be used sparingly and only to recover correct trajectory alignment
+
+The goal is for the agent to successfully pass all evaluation rubrics.
+
+---
+
+## 🧠 Key Skills Being Evaluated
+
+This project measures agent performance across:
+
+- Multi-turn reasoning consistency
+- Context retention across long interactions
+- Goal switching between workflows
+- Handling of user corrections
+- Decision discipline (ACT vs YIELD behavior)
+- Safe tool usage under ambiguity
+- Cross-application coordination
+
+---
+
+## ⚠️ Failure Conditions
+
+A task is considered successful in design only if Run 1 produces at least one failure case.
+
+Common failure modes include:
+- Premature execution without full constraints
+- Ignoring updated user corrections
+- Losing context across turns
+- Incorrect tool selection or sequencing
+
+---
+
+## 🎯 Final Objective
+
+By the end of Run 2, the AI agent must:
+- Correctly follow the multi-turn structure
+- Respect all rubrics
+- Handle corrections and pivots
+- Successfully complete all required actions across applications
+- Maintain consistent reasoning across the entire trajectory
+
+---
+
+## 🛡️ Safety Note
+
+All environments are fully simulated and synthetic.
+No real systems, credentials, or external services are impacted.
+
+This project exists solely for AI evaluation and safety research purposes.
