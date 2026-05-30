@@ -19,7 +19,7 @@ Andres is preparing a high-stakes European business and tutoring expansion trip.
 - Focused on execution speed over precision
 
 ## Goal
-Successfully complete a multi-city European trip plan including flights, scheduling, and email coordination with new contacts.
+Successfully complete a multi-city European trip plan including flights to Madrid, Munich, Milan, Paris and Bogota, scheduling, and email coordination with new contacts.
 
 ## Apps Used
 Primary: Airline booking system  
