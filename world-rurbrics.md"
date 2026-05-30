@@ -1,9 +1,16 @@
 ##Rubrics
-"rubric","type","target","category"
-"Agent must request missing travel details before booking","text","TRAJECTORY","Process"
-"Agent must retrieve all flights for each route segment","text","TRAJECTORY","Extraction"
-"Agent must enforce time constraint before filtering results","text","TRAJECTORY","Process"
-"Agent must update itinerary when user corrects date","text","TRAJECTORY","Reasoning"
-"Agent must not book flights without confirmation","text","DB_DIFF","Process"
-"Agent must send emails with correct arrival dates","text","DB_DIFF","Extraction"
-"Agent must produce final confirmed itinerary","text","FINAL_ANSWER","Reasoning"
+"Agent yield and ask the user for destination, date, and time.
+"Agent act and search for all the flights available from Munich to Milan on June 17th
+"Agent act and search for all the flights available from Milan to Paris on June 20th
+"Agent act and search for all the flights available from Paris to Bogota on June 22th
+"Agent act and filter all the flights available and only shows the one before 11 AM.
+"Agent discard the flight on June 20.
+"The agent search for a flight from Milan to Paris on June 19.
+"The agent booked the flight AF306 from Milan to Paris at on June 19.
+"The agent Booked the flight AF422 from Paris to Bogota on June 22.
+"The model sends an email to Carlos Ruiz
+"The model sends an email to Hans Weber
+"The model sends an email to Giulia Moretti.
+"The model sends an email to Investissement Paris
+"The agent booked the flight RYR101 from Munich to Milan on June 17.
+"Agent confirms four emails have been sent.
