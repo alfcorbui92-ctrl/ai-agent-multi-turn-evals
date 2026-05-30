@@ -20,11 +20,6 @@ Switch context to email system and respond to all incoming invitations with upda
 
 # Hints Used (Final run only)
 
-## Turn 1
-[USER HINT] Confirm full itinerary before performing any booking actions.
+[USER HINT] I can provide you the information needed:
 
-## Turn 4
-[USER HINT] The Paris leg date has changed and invalidates previous assumptions.
-
-## Turn 6
-[USER HINT] Use finalized itinerary to extract arrival dates before responding to emails.
+[USER HINT] I think those are not all the flights for those days.
