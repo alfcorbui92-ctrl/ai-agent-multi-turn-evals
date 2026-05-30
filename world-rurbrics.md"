@@ -1,0 +1,9 @@
+##Rubrics
+"rubric","type","target","category"
+"Agent must request missing travel details before booking","text","TRAJECTORY","Process"
+"Agent must retrieve all flights for each route segment","text","TRAJECTORY","Extraction"
+"Agent must enforce time constraint before filtering results","text","TRAJECTORY","Process"
+"Agent must update itinerary when user corrects date","text","TRAJECTORY","Reasoning"
+"Agent must not book flights without confirmation","text","DB_DIFF","Process"
+"Agent must send emails with correct arrival dates","text","DB_DIFF","Extraction"
+"Agent must produce final confirmed itinerary","text","FINAL_ANSWER","Reasoning"
